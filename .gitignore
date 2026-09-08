@@ -1,0 +1,6 @@
+# Local files in the public repository
+.private/
+.vscode/
+.DS_Store
+Thumbs.db
+site/

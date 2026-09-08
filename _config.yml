@@ -1,0 +1,19 @@
+title: Today AI Learned
+description: Practical notes about AI assisted analytics engineering in VS Code.
+url: ""
+baseurl: "/today-ai-learned"
+markdown: kramdown
+permalink: pretty
+
+collections:
+  articles:
+    output: true
+
+exclude:
+  - README.md
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

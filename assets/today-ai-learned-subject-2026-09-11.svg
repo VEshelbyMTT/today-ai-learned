@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="677" height="490" viewBox="0 0 677 490" role="img" aria-labelledby="title description">
+  <title id="title">Today AI Learned weekly series</title>
+  <desc id="description">Cream grid banner with a green side border, dated weekly series label, Today AI Learned heading, Victoria Eshelby byline, and Designing your IDE subject.</desc>
+  <defs>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#1e2a24" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="677" height="490" fill="#f4f1e8"/>
+  <rect width="677" height="490" fill="url(#grid)"/>
+  <rect width="24" height="490" fill="#c8f135"/>
+  <rect x="24" width="7" height="490" fill="#111713"/>
+
+  <g aria-label="Weekly series date">
+    <text x="67" y="72" fill="#39443e" font-family="Consolas, monospace" font-size="22" font-weight="700" letter-spacing="0">WEEKLY SERIES: {2026-09-11}</text>
+    <line x1="67" y1="91" x2="610" y2="91" stroke="#111713" stroke-width="4"/>
+  </g>
+
+  <g aria-label="Today AI Learned heading">
+    <text x="64" y="190" fill="#111713" font-family="Arial Black, Trebuchet MS, sans-serif" font-size="69" font-weight="900" letter-spacing="0">TODAY</text>
+    <text x="64" y="284" fill="#111713" font-family="Arial Black, Trebuchet MS, sans-serif" font-size="98" font-weight="900" letter-spacing="0">AI</text>
+    <rect x="205" y="207" width="188" height="82" fill="#25b4c5"/>
+    <text x="231" y="270" fill="#111713" font-family="Consolas, monospace" font-size="53" font-weight="700" letter-spacing="0">{ }</text>
+    <text x="64" y="350" fill="#111713" font-family="Arial Black, Trebuchet MS, sans-serif" font-size="69" font-weight="900" letter-spacing="0">LEARNED</text>
+  </g>
+
+  <g aria-label="Author">
+    <text x="67" y="390" fill="#39443e" font-family="Consolas, monospace" font-size="20" font-weight="700" letter-spacing="0">by Victoria Eshelby</text>
+    <line x1="67" y1="411" x2="610" y2="411" stroke="#111713" stroke-width="6"/>
+  </g>
+
+  <text x="67" y="458" fill="#111713" font-family="Consolas, monospace" font-size="23" font-weight="700" letter-spacing="0">subject: Designing your IDE</text>
+</svg>

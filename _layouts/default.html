@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-mark" href="{{ '/' | relative_url }}" aria-label="Today AI Learned home">
+        <span class="site-mark__brace" aria-hidden="true">{ }</span>
+        <span>Today AI Learned</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="{{ '/#articles' | relative_url }}">Articles</a>
+        <a href="{{ '/#examples' | relative_url }}">Examples</a>
+      </nav>
+    </header>
+
+    <main{% if page.home %} class="home"{% else %} class="prose"{% endif %}>
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <p>Experiments, evidence, and the judgement between them.</p>
+      <p>Victoria Eshelby</p>
+    </footer>
+  </body>
+</html>
