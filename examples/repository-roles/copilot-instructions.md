@@ -1,3 +1,9 @@
+---
+title: Repository Role Instructions
+description: Copyable GitHub Copilot instructions for source authority, write ownership, and validation.
+permalink: /examples/repository-roles/instructions/
+---
+
 # Repository Role Instructions
 
 Copy the content below into `.github/copilot-instructions.md` in the repository where the rules should apply. Replace each generic role with the relevant folder or repository name.
@@ -37,3 +43,5 @@ Require human review before treating generated guidance as team knowledge.
 ## Why use a file
 
 A chat message provides context for that conversation. A checked in instruction file makes the repository rules visible, reviewable, and reusable in later work.
+
+[Back to all examples]({{ '/#examples' | relative_url }})

@@ -1,3 +1,9 @@
+---
+title: Engineering Feedback Loop
+description: A practical checklist for framing, inspecting, changing, validating, deciding, and sharing.
+permalink: /examples/feedback-loop/
+---
+
 # Engineering Feedback Loop
 
 Use this checklist to keep AI assisted work tied to evidence and decisions.
@@ -39,3 +45,5 @@ Use this checklist to keep AI assisted work tied to evidence and decisions.
 2. Store rationale with architecture decisions.
 3. Add reusable, reviewed guidance to the knowledge base.
 4. Record what remains uncertain.
+
+[Back to all examples]({{ '/#examples' | relative_url }})

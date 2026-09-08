@@ -1,3 +1,9 @@
+---
+title: Workspace Layout Example
+description: A copyable workspace structure for personal notes, governed repositories, and external references.
+permalink: /examples/repository-roles/workspace-layout/
+---
+
 # Workspace Layout Example
 
 Use this as a starting point for a VS Code workspace that contains several sources with different responsibilities.
@@ -29,3 +35,5 @@ Repository area
 4. Which sources are examples rather than authority?
 5. What should the agent do when two sources disagree?
 6. Which local material must never be published?
+
+[Back to all examples]({{ '/#examples' | relative_url }})

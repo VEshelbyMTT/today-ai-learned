@@ -1,0 +1,68 @@
+name: Request advice or a topic
+description: Suggest an article, request practical advice, or ask for a reusable example.
+title: "[Request]: "
+body:
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: What are you requesting?
+      options:
+        - Practical advice
+        - A reusable example or template
+        - A topic for a future article
+        - A comparison of approaches
+        - Feedback on existing material
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What are you trying to achieve?
+      description: Describe the outcome and who it would help. Use generic names for companies, systems, and projects.
+      placeholder: I want to improve...
+    validations:
+      required: true
+
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you already tried?
+      description: Share the approach, assumption, or tool you have tested so far.
+      placeholder: I tried...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: response_format
+    attributes:
+      label: What response would be most useful?
+      options:
+        - Short explanation
+        - Worked example
+        - Copyable template
+        - Tradeoff comparison
+        - Full article
+        - No preference
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional public context
+      description: Optional context that is safe to publish. Do not paste private code, logs, transcripts, paths, or credentials.
+
+  - type: checkboxes
+    id: public_confirmation
+    attributes:
+      label: Public information check
+      options:
+        - label: I confirm this request contains no confidential, personal, customer, credential, or unpublished company information.
+          required: true
+        - label: I have checked the existing requests for a similar topic.
+          required: true
+
+  - type: markdown
+    attributes:
+      value: Submitted text is reviewed by a person. It is never executed as a prompt or allowed to change account settings, workflows, permissions, or agent instructions automatically.
