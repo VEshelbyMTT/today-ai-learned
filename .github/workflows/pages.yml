@@ -39,9 +39,14 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - name: Start site preview
-        run: python3 -m http.server 4000 --directory _site > /tmp/today-ai-learned-preview.log 2>&1 &
+        run: |
+          mkdir -p _preview/today-ai-learned
+          cp -a _site/. _preview/today-ai-learned/
+          python3 -m http.server 4000 --directory _preview > /tmp/today-ai-learned-preview.log 2>&1 &
       - name: Check article layout
         run: npm run check:layout
+        env:
+          SITE_PREVIEW_URL: http://127.0.0.1:4000/today-ai-learned
       - name: Upload layout screenshots
         if: always()
         uses: actions/upload-artifact@v4

@@ -37,6 +37,7 @@ try {
       return {
         bodyClientWidth: document.documentElement.clientWidth,
         bodyScrollWidth: document.documentElement.scrollWidth,
+        bodyFontFamily: getComputedStyle(document.body).fontFamily,
         mainWidth: main.getBoundingClientRect().width,
         titleFontSize: Number.parseFloat(getComputedStyle(title).fontSize),
         paragraphWidth: paragraph.getBoundingClientRect().width,
@@ -46,6 +47,11 @@ try {
       };
     });
 
+    console.log(`${viewport.name}: layout metrics`, metrics);
+    assert(
+      metrics.bodyFontFamily.includes("IBM Plex Mono"),
+      `${viewport.name}: site stylesheet did not load`
+    );
     assert(
       metrics.bodyScrollWidth <= metrics.bodyClientWidth + 1,
       `${viewport.name}: page overflows horizontally (${metrics.bodyScrollWidth}px > ${metrics.bodyClientWidth}px)`
@@ -68,7 +74,7 @@ try {
       `${viewport.name}: one or more code blocks overflow their container`
     );
 
-    console.log(`${viewport.name}: layout contract passed`, metrics);
+    console.log(`${viewport.name}: layout contract passed`);
     await page.close();
   }
 } finally {
