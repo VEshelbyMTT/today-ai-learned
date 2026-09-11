@@ -26,15 +26,18 @@ try {
 
     const metrics = await page.evaluate(() => {
       const main = document.querySelector("main.prose");
+      const header = document.querySelector(".article-header");
       const title = document.querySelector(".article-header h1");
       const deck = document.querySelector(".article-deck");
       const paragraph = document.querySelector("main.prose > p:not(.article-summary)");
+      const stylesheet = document.querySelector('link[rel="stylesheet"][href*="/assets/css/style.css"]');
       const codeBlocks = [...document.querySelectorAll("main.prose pre")];
 
-      if (!main || !title || !deck || !paragraph) {
+      if (!main || !header || !title || !deck || !paragraph || !stylesheet) {
         throw new Error("Article layout contract elements are missing");
       }
 
+      const headerBounds = header.getBoundingClientRect();
       const titleBounds = title.getBoundingClientRect();
       const deckBounds = deck.getBoundingClientRect();
 
@@ -42,8 +45,16 @@ try {
         bodyClientWidth: document.documentElement.clientWidth,
         bodyScrollWidth: document.documentElement.scrollWidth,
         bodyFontFamily: getComputedStyle(document.body).fontFamily,
+        stylesheetVersioned: new URL(stylesheet.href).searchParams.has("v"),
         mainWidth: main.getBoundingClientRect().width,
+        headerLeft: headerBounds.left,
+        headerWidth: headerBounds.width,
         titleFontSize: Number.parseFloat(getComputedStyle(title).fontSize),
+        titleWithinHeader:
+          titleBounds.left >= headerBounds.left &&
+          titleBounds.right <= headerBounds.right &&
+          titleBounds.top >= headerBounds.top &&
+          titleBounds.bottom <= headerBounds.bottom,
         titleDeckOverlap: !(
           titleBounds.right <= deckBounds.left ||
           titleBounds.left >= deckBounds.right ||
@@ -62,6 +73,11 @@ try {
       metrics.bodyFontFamily.includes("IBM Plex Mono"),
       `${viewport.name}: site stylesheet did not load`
     );
+    assert.equal(
+      metrics.stylesheetVersioned,
+      true,
+      `${viewport.name}: stylesheet URL is not cache-versioned`
+    );
     assert(
       metrics.bodyScrollWidth <= metrics.bodyClientWidth + 1,
       `${viewport.name}: page overflows horizontally (${metrics.bodyScrollWidth}px > ${metrics.bodyClientWidth}px)`
@@ -71,8 +87,17 @@ try {
       `${viewport.name}: article canvas leaves an unintended side column`
     );
     assert(
+      Math.abs(metrics.headerLeft) <= 1 && metrics.headerWidth >= metrics.bodyClientWidth - 1,
+      `${viewport.name}: masthead has unintended outer gutters`
+    );
+    assert(
       metrics.titleFontSize <= viewport.maxTitleSize,
       `${viewport.name}: title is oversized at ${metrics.titleFontSize}px`
+    );
+    assert.equal(
+      metrics.titleWithinHeader,
+      true,
+      `${viewport.name}: article title escapes the masthead`
     );
     assert.equal(
       metrics.titleDeckOverlap,
