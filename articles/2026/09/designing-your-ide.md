@@ -1,14 +1,19 @@
 ---
 title: Designing an AI friendly IDE workspace
 description: How repository roles help AI agents distinguish current behaviour, proposed direction, shared guidance, and external examples.
-permalink: /articles/designing-your-ide/
+permalink: /articles/designing-an-ai-friendly-ide-workspace/
 ---
 
-**TL;DR:** Give each repository a role. Tell the AI where to read, where to write, and which source wins when they disagree.
+<header class="article-header">
+    <div class="article-header__inner">
+        <p class="article-kicker">Issue 01 · Workspace design</p>
+        <h1>Designing an AI friendly IDE workspace</h1>
+        <p class="article-deck">How repository roles help AI agents separate current behaviour, future direction, shared guidance, and external examples.</p>
+        <p class="article-date">Published 11 September 2026</p>
+    </div>
+</header>
 
-# Today AI Learned: Designing an AI friendly IDE workspace
-
-**Published:** 11 September 2026
+<p class="article-summary"><strong>In short:</strong> Give each repository a role. Tell the AI where to read, where to write, and which source wins when they disagree.</p>
 
 I have been reflecting on how the structure of my VS Code workspace affects the answers I get from AI agents.
 

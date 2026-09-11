@@ -213,11 +213,11 @@ a:focus-visible {
 }
 
 .prose {
-  max-width: calc(760px + (100vw - var(--content)) / 2);
   min-height: 70vh;
-  padding-top: 72px;
   padding-bottom: 96px;
-  background: rgba(244, 241, 232, 0.94);
+  background: rgba(244, 241, 232, 0.98);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.08rem;
 }
 
 .prose h1,
@@ -229,18 +229,77 @@ a:focus-visible {
 }
 
 .prose h1 {
-  margin: 0 0 40px;
-  font-size: clamp(2.5rem, 7vw, 5rem);
+  max-width: 14ch;
+  margin: 0;
+  font-size: 4.5rem;
+  line-height: 0.96;
 }
 
 .prose h2 {
-  margin-top: 56px;
+  margin-top: 64px;
   font-size: 2rem;
+}
+
+.prose > :not(.article-header) {
+  width: min(760px, calc(100% - 48px));
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .prose p,
 .prose li {
   max-width: 72ch;
+}
+
+.article-header {
+  width: 100%;
+  margin-bottom: 44px;
+  padding: 72px max(24px, calc((100vw - var(--content)) / 2));
+  border-bottom: 3px solid var(--ink);
+  background: var(--cyan);
+}
+
+.article-header__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.7fr);
+  gap: 24px 56px;
+  max-width: var(--content);
+  margin: 0 auto;
+}
+
+.article-kicker,
+.article-date {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.article-kicker {
+  grid-column: 1 / -1;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.article-deck {
+  align-self: end;
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.article-date {
+  grid-column: 1 / -1;
+}
+
+.prose .article-summary {
+  margin-bottom: 44px;
+  padding: 20px 24px;
+  border-left: 10px solid var(--green);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 1.12rem;
 }
 
 .prose blockquote {
@@ -258,6 +317,9 @@ a:focus-visible {
   border: 3px solid var(--ink);
   background: var(--cyan);
   color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
 }
 
 .prose code {
@@ -313,6 +375,28 @@ a:focus-visible {
 
   .hero {
     min-height: 600px;
+  }
+
+  .article-header {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .article-header__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .prose h1 {
+    font-size: 2.75rem;
+  }
+
+  .article-deck {
+    font-size: 1.1rem;
+  }
+
+  .prose pre {
+    padding: 18px;
+    font-size: 0.82rem;
   }
 
   .example-grid {

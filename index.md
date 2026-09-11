@@ -21,13 +21,13 @@ description: Practical notes about AI assisted analytics engineering in VS Code.
   <p class="section-label">Issue 01</p>
   <h2 class="section-heading">Start with the environment, not the prompt.</h2>
   <div class="article-list">
-    <a class="article-card" href="{{ '/articles/designing-your-ide/' | relative_url }}">
+    <a class="article-card" href="{{ '/articles/designing-an-ai-friendly-ide-workspace/' | relative_url }}">
       <div>
-        <h3>Designing your IDE</h3>
+        <h3>Designing an AI friendly IDE workspace</h3>
         <p>How repository roles help an AI agent distinguish current behaviour, proposed direction, shared guidance, and external examples.</p>
         <span class="article-card__meta">11 September 2026 · Read the article</span>
       </div>
-      <img src="{{ '/assets/today-ai-learned-subject-2026-09-11.svg' | relative_url }}" alt="Today AI Learned: Designing your IDE">
+      <img src="{{ '/assets/today-ai-learned-subject-2026-09-11.svg' | relative_url }}" alt="Today AI Learned: Designing an AI friendly IDE workspace">
     </a>
   </div>
 </section>

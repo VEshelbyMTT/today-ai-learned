@@ -30,6 +30,25 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install layout test dependencies
+        run: npm install --no-audit --no-fund
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Start site preview
+        run: python3 -m http.server 4000 --directory _site > /tmp/today-ai-learned-preview.log 2>&1 &
+      - name: Check article layout
+        run: npm run check:layout
+      - name: Upload layout screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: article-layout-screenshots
+          path: test-results/
+          if-no-files-found: ignore
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 

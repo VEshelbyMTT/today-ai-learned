@@ -1,0 +1,10 @@
+{
+  "name": "today-ai-learned-site",
+  "private": true,
+  "scripts": {
+    "check:layout": "node scripts/check-layout.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.55.0"
+  }
+}

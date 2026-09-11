@@ -303,4 +303,4 @@ Note: Most of this text was written by AI. Ask your AI to summarize the relevant
 
 The links at the top provide starting points. This resource is designed to help you begin, not to be cloned one-to-one. Your GitHub coding agent can adapt it to your existing infrastructure.
 
-[Back to the article]({{ '/articles/designing-your-ide/' | relative_url }})
+[Back to the article]({{ '/articles/designing-an-ai-friendly-ide-workspace/' | relative_url }})
