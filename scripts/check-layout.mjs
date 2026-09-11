@@ -27,12 +27,16 @@ try {
     const metrics = await page.evaluate(() => {
       const main = document.querySelector("main.prose");
       const title = document.querySelector(".article-header h1");
+      const deck = document.querySelector(".article-deck");
       const paragraph = document.querySelector("main.prose > p:not(.article-summary)");
       const codeBlocks = [...document.querySelectorAll("main.prose pre")];
 
-      if (!main || !title || !paragraph) {
+      if (!main || !title || !deck || !paragraph) {
         throw new Error("Article layout contract elements are missing");
       }
+
+      const titleBounds = title.getBoundingClientRect();
+      const deckBounds = deck.getBoundingClientRect();
 
       return {
         bodyClientWidth: document.documentElement.clientWidth,
@@ -40,6 +44,12 @@ try {
         bodyFontFamily: getComputedStyle(document.body).fontFamily,
         mainWidth: main.getBoundingClientRect().width,
         titleFontSize: Number.parseFloat(getComputedStyle(title).fontSize),
+        titleDeckOverlap: !(
+          titleBounds.right <= deckBounds.left ||
+          titleBounds.left >= deckBounds.right ||
+          titleBounds.bottom <= deckBounds.top ||
+          titleBounds.top >= deckBounds.bottom
+        ),
         paragraphWidth: paragraph.getBoundingClientRect().width,
         overflowingCodeBlocks: codeBlocks.filter(
           (block) => block.scrollWidth > block.clientWidth + 1
@@ -63,6 +73,11 @@ try {
     assert(
       metrics.titleFontSize <= viewport.maxTitleSize,
       `${viewport.name}: title is oversized at ${metrics.titleFontSize}px`
+    );
+    assert.equal(
+      metrics.titleDeckOverlap,
+      false,
+      `${viewport.name}: article title overlaps its supporting text`
     );
     assert(
       metrics.paragraphWidth <= 800,

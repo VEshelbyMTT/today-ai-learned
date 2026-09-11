@@ -214,7 +214,9 @@ a:focus-visible {
 
 .prose {
   min-height: 70vh;
+  padding-right: 0;
   padding-bottom: 96px;
+  padding-left: 0;
   background: rgba(244, 241, 232, 0.98);
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.08rem;
@@ -261,8 +263,8 @@ a:focus-visible {
 
 .article-header__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.7fr);
-  gap: 24px 56px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
   max-width: var(--content);
   margin: 0 auto;
 }
@@ -283,14 +285,14 @@ a:focus-visible {
 }
 
 .article-deck {
-  align-self: end;
+  max-width: 52ch;
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.45;
 }
 
 .article-date {
-  grid-column: 1 / -1;
+  margin-top: 8px;
 }
 
 .prose .article-summary {

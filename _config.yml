@@ -2,6 +2,7 @@ title: Today AI Learned
 description: Practical notes about AI assisted analytics engineering in VS Code.
 url: ""
 baseurl: "/today-ai-learned"
+asset_version: "2026-09-11-3"
 markdown: kramdown
 permalink: pretty
 
