@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="677" height="490" viewBox="0 0 677 490" role="img" aria-labelledby="title description">
   <title id="title">Today AI Learned weekly series</title>
-  <desc id="description">Cream grid banner with a green side border, dated weekly series label, Today AI Learned heading, Victoria Eshelby byline, and Designing your IDE subject.</desc>
+  <desc id="description">Cream grid banner with a green side border, dated weekly series label, Today AI Learned heading, Victoria Eshelby byline, and Designing an AI friendly IDE workspace subject.</desc>
   <defs>
     <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
       <path d="M42 0H0V42" fill="none" stroke="#1e2a24" stroke-opacity="0.07" stroke-width="1"/>
@@ -30,5 +30,5 @@
     <line x1="67" y1="411" x2="610" y2="411" stroke="#111713" stroke-width="6"/>
   </g>
 
-  <text x="67" y="458" fill="#111713" font-family="Consolas, monospace" font-size="23" font-weight="700" letter-spacing="0">subject: Designing your IDE</text>
+  <text x="67" y="458" fill="#111713" font-family="Consolas, monospace" font-size="16" font-weight="700" letter-spacing="0">subject: Designing an AI friendly IDE workspace</text>
 </svg>
