@@ -135,21 +135,3 @@ The strongest prompts did one of four things:
 4. Reported real output and asked for the smallest safe correction.
 
 The useful story is not that one perfect prompt generated the environment. The environment emerged through requirements, challenge, deployment evidence, and correction across many turns.
-
-## Publication safe excerpts
-
-These short excerpts can be quoted publicly without exposing the environment:
-
-> Act as a senior Azure Solutions Architect and PowerShell automation engineer. The lab already exists. Do not recreate it. Build only the remaining components.
-
-> Time restrict the workshop. When the session ends, learners should lose access and the virtual machines should shut down.
-
-> Evaluate the design from a security and infrastructure perspective. What considerations or policies are missing?
-
-> Make it as easy as possible for the learner.
-
-> From the perspective of a refugee whose English may be limited, what other considerations should I put in place?
-
-> Walk me through the deployment script. Am I ready to deploy, and what else could be problematic?
-
-> Change the code so existing identities and resources are not recreated or overwritten.
