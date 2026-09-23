@@ -19,7 +19,7 @@ permalink: /articles/making-ai-my-implementation-minion/
 
 The shorter case study and public safety guide are available here (this is also a plug to my other project that I am working on):
 
-https://veshelbymtt.github.io/data-portfolio/ai901-refugee-labs.html
+[Read the AI-901 refugee labs case study and public safety guide.](https://veshelbymtt.github.io/data-portfolio/ai901-refugee-labs.html)
 
 ## Context
 
