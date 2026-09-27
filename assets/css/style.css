@@ -79,8 +79,33 @@ a:focus-visible {
 
 .site-nav {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(12px, 2vw, 24px);
   font-weight: 600;
+}
+
+.site-nav__github {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--ink);
+  background: var(--green);
+  box-shadow: 3px 3px 0 var(--ink);
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.site-nav__github:hover {
+  box-shadow: 1px 1px 0 var(--ink);
+  transform: translate(2px, 2px);
+}
+
+.site-nav__github svg {
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
 }
 
 .hero {
