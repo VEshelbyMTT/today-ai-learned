@@ -328,10 +328,3 @@ Those decisions needed the project context, the learner context, and a human who
 For the remainder of FY27, I am ready to help with more workshops where I can safely provide temporary learner access.
 
 I also want to make this approach reusable for trainers who need to run a practical session without waiting for a large lab engagement. That means improving the safe defaults, testing different cohort sizes, documenting the true cost, and keeping authentication and approval with the person operating the environment. If you are a technical trainer, please share your feedback with me.
-
-## Meta data regarding this blog 
-Thats it for this week. I'll see you in an upcoming blog! V.Eshelby signing off. 
-
-Note regarding this article: The architecture, decisions and embellishments are handwritten.. hand typed? Basically I made dis. AI helped me draft, compare, review, and document the implementation.
-
-#TodayAILearned #TechnicalTraining #Azure #ArtificialIntelligence #PowerShell
