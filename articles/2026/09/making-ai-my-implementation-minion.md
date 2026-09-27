@@ -9,11 +9,17 @@ permalink: /articles/making-ai-my-implementation-minion/
         <p class="article-kicker">Issue 02 · Trainer managed Azure labs</p>
         <h1>Making AI my implementation minion</h1>
         <p class="article-deck">How I used AI in VS Code to help design a trainer managed Azure workshop while keeping authentication, tenant context, and execution under human control.</p>
-        <p class="article-date">Published 25 September 2026</p>
+        <p class="article-date">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v4M17 2v4M3.5 9.5h17M5.5 4h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
+          <span><span class="visually-hidden">Published </span>25 September 2026</span>
+        </p>
     </div>
 </header>
 
-<p class="article-summary"><strong>In short:</strong> I built a lab environment in my Azure tenant so refugees could access practical AI-901 labs. AI handled much of the implementation. I retained the authentication, validation, and decisions.</p>
+<p class="article-summary">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v13H8l-4 4V4Z"/><path d="M8 8h8M8 12h6"/></svg>
+  <span><strong class="visually-hidden">In short: </strong>I built a lab environment in my Azure tenant so refugees could access practical AI-901 labs. AI handled much of the implementation. I retained the authentication, validation, and decisions.</span>
+</p>
 
 <img class="article-hero" src="{{ '/assets/today-ai-learned-subject-2026-09-25.svg' | relative_url }}" alt="Today AI Learned: Making AI my implementation minion">
 
