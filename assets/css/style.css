@@ -220,6 +220,11 @@ a:focus-visible {
   border: 3px solid var(--ink);
 }
 
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
+
 .article-hero {
   width: min(560px, calc(100% - 48px));
   margin: 32px auto 48px;
