@@ -5,21 +5,21 @@ description: Practical notes about AI assisted analytics engineering in VS Code.
 ---
 
 <section class="hero">
-  <p class="hero__eyebrow">A weekly field note by Victoria Eshelby</p>
+  <p class="hero__eyebrow">Notes by Victoria Eshelby</p>
   <h1>Today AI <span>Learned</span></h1>
-  <p class="hero__lede">Real experiments with AI in VS Code, the evidence behind them, and the decisions that still require human judgement.</p>
+  <p class="hero__lede">I use AI while doing real work, then write down what happened. That includes the useful parts, the wrong turns, and the decisions I was not willing to delegate.</p>
 </section>
 
 <section class="content-band content-band--request">
-  <p class="section-label">What should I explore next?</p>
-  <h2 class="section-heading">Bring me a problem, not a perfect prompt.</h2>
-  <p>Request practical advice, suggest a topic, or ask for an example that other people could reuse.</p>
-  <a class="button" href="{{ '/request/' | relative_url }}">Request a topic</a>
+  <p class="section-label">Got an awkward problem?</p>
+  <h2 class="section-heading">Tell me what is taking too long.</h2>
+  <p>I am more interested in the stubborn task than the perfect prompt. Suggest one and I may try it in a future note.</p>
+  <a class="button" href="{{ '/request/' | relative_url }}">Suggest a problem</a>
 </section>
 
 <section class="content-band" id="articles">
-  <p class="section-label">Latest issues</p>
-  <h2 class="section-heading">Dream first. Let AI handle the implementation.</h2>
+  <p class="section-label">Field notes</p>
+  <h2 class="section-heading">What I tried, and what survived contact with reality.</h2>
   <div class="article-list">
     <a class="article-card" href="{{ '/articles/making-ai-my-implementation-minion/' | relative_url }}">
       <div>
@@ -41,8 +41,8 @@ description: Practical notes about AI assisted analytics engineering in VS Code.
 </section>
 
 <section class="content-band content-band--ink" id="examples">
-  <p class="section-label">Copy and adapt</p>
-  <h2 class="section-heading">Examples built for use, not display.</h2>
+  <p class="section-label">The files</p>
+  <h2 class="section-heading">Not just the story.</h2>
   <div class="example-grid">
     <a class="example-card" href="{{ '/examples/trainer-managed-azure-lab/' | relative_url }}">
       <h3>Trainer managed Azure lab</h3>
