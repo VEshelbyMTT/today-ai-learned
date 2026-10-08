@@ -1,0 +1,43 @@
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#1B1B24'
+    primaryTextColor: '#F7F7FA'
+    primaryBorderColor: '#F7F7FA'
+    secondaryColor: '#222230'
+    secondaryTextColor: '#F7F7FA'
+    secondaryBorderColor: '#F7F7FA'
+    tertiaryColor: '#F7F7FA'
+    tertiaryTextColor: '#243447'
+    tertiaryBorderColor: '#8CB4D8'
+    lineColor: '#F7F7FA'
+---
+%% Reconstructed from Iteration_2_Diagram_from_project.png because the original Mermaid source was unavailable.
+flowchart TB
+  table["dim_button<br/>Governed button taxonomy"]
+
+  subgraph definitions["Column definitions"]
+    direction TB
+    category["button_category<br/>Groups equivalent actions"]
+    screen["mapped_screen_name<br/>Identifies the containing screen"]
+    surface["mapped_navigation_surface<br/>Captures broader navigation intent"]
+    tags["semantic_tags<br/>Adds cross-cutting metadata"]
+  end
+
+  subgraph values["Illustrative values"]
+    direction TB
+    category_values["Authentication: button_a<br/>Messaging: button_b, button_c<br/>Gameplay: button_i, button_j"]
+    screen_values["Authentication: screen_a<br/>Messaging: screen_b<br/>Missing source: unknown"]
+    surface_values["Authentication: sign_in<br/>Gameplay: play, party<br/>Social: profile, social_drawer"]
+    tag_values["Workstream: workstream &lt;acronym&gt;<br/>Message family: announcement<br/>Added through governed review"]
+  end
+
+  table --> category
+  table --> screen
+  table --> surface
+  table --> tags
+  category -. examples .-> category_values
+  screen -. examples .-> screen_values
+  surface -. examples .-> surface_values
+  tags -. examples .-> tag_values

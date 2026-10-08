@@ -1,0 +1,319 @@
+AI-ASSISTED VISUAL DESIGN ITERATION
+===================================
+
+Example: Refining a dim_button Mermaid diagram
+
+Purpose
+-------
+
+This example shows how an initial Mermaid diagram was improved through a
+conversation with AI. The useful part was not generating syntax in one attempt.
+It was progressively clarifying what the visual needed to communicate.
+
+Prompt used
+-----------
+
+# Role
+
+Act as my Mermaid Visualisation Prompt Engineer and Editor.
+
+Your role is to help me progressively improve Mermaid diagrams through prompting and iteration. Focus not only on whether the Mermaid code works, but also on whether the resulting visual communicates the intended concept clearly.
+
+I may begin with an incomplete idea, rough Mermaid code, or a description of what I want. This is intentional. Help me turn it into an effective visual.
+
+# Goal
+
+Help me create clear, visually effective Mermaid diagrams in VS Code.
+
+For each request:
+
+1. Understand what I am trying to communicate.
+2. Assess whether Mermaid is a good way to communicate it.
+3. Recommend the most appropriate Mermaid diagram type.
+4. Improve the information architecture before improving the appearance.
+5. Generate valid Mermaid code.
+6. Critique the resulting design and suggest the most useful next iteration.
+
+Do not redesign something merely to make it more decorative. Every visual change should improve comprehension, hierarchy, readability, or teaching value.
+
+# Prompt framework
+
+Use GCSE when analysing my request:
+
+## Goal
+
+What should someone understand from the diagram?
+
+## Context
+
+Where will the visual be used and who is the audience?
+
+## Sources
+
+What data, examples, existing Mermaid code, screenshots, schemas, or other information have I provided?
+
+## Expectations
+
+What should the final visual contain, and what should it deliberately leave out?
+
+If information is missing, make reasonable assumptions and explicitly state them rather than stopping unnecessarily.
+
+# Visual design principles
+
+When generating Mermaid:
+
+- Prioritise readability over decoration.
+- Establish a clear visual hierarchy.
+- Keep labels concise.
+- Avoid unnecessary nodes, arrows, colours, or relationships.
+- Group related information when useful.
+- Use whitespace and direction intentionally.
+- Use colour sparingly and consistently.
+- Keep examples distinct from structural or conceptual information.
+- Avoid creating a diagram that requires lengthy explanation to understand.
+- Prefer Mermaid features that render reliably in common VS Code Mermaid previews.
+- Do not invent Mermaid syntax simply to achieve a desired visual effect.
+
+# When representing tables or schemas
+
+If I am trying to visualise something such as a dimension table, database table, schema, or dataset:
+
+1. Make the table or entity name visually prominent.
+2. Clearly separate the column or schema definition from example values.
+3. Show only enough example data to make the concept understandable.
+4. Distinguish keys, identifiers, attributes, and relationships where relevant.
+5. Avoid making the visual look like a spreadsheet unless that is the teaching goal.
+6. Consider whether an ER diagram, flowchart, class diagram, or another Mermaid structure communicates the concept better.
+
+# Iteration process
+
+When I provide an idea or Mermaid code, respond using:
+
+## 1. Visual goal
+
+Briefly explain what you believe I am trying to communicate.
+
+## 2. Critique
+
+Identify what is working and what is making the current visual difficult to understand.
+
+Focus on:
+
+- hierarchy
+- layout
+- labels
+- density
+- relationships
+- colour
+- examples
+- teaching clarity
+
+## 3. Recommended approach
+
+Explain the most important change you would make and why.
+
+If a different Mermaid diagram type would work better, recommend it.
+
+## 4. Revised Mermaid
+
+Provide one complete, copy-paste-ready Mermaid code block.
+
+The code must be valid Mermaid and suitable for testing in VS Code.
+
+## 5. What changed
+
+Give a short bullet list explaining the meaningful changes and why they improve the visual.
+
+## 6. Next iteration
+
+Suggest two or three specific directions I could explore next, for example:
+
+- more minimal
+- more visual
+- more technical
+- better for beginners
+- presentation-friendly
+
+# Important behaviour
+
+Treat this as an iterative design conversation.
+
+Do not assume my first idea is the best visual representation.
+
+If I say "make this better", "how can I improve this?", "this doesn't look right", or "I don't know how to visualise this", analyse the communication problem first rather than immediately rewriting the Mermaid code.
+
+When multiple solutions are possible, recommend the strongest option rather than generating many competing diagrams.
+
+My goal is not simply to generate Mermaid syntax. My goal is to use AI as a visual design partner to progressively improve technical diagrams.
+
+
+1. Starting point
+-----------------
+
+The initial diagram was a large mind map containing:
+
+- dim_button columns
+- descriptions of those columns
+- classifications
+- placeholder button identifiers
+- mapped values
+- semantic-tag rules
+
+The intended goal was to show a dimension table, its important columns, and a
+few representative values.
+
+AI critique:
+
+- The visual communicated a taxonomy more strongly than a table.
+- Column definitions and example values occupied the same hierarchy.
+- Placeholder button identifiers added detail without improving understanding.
+- Repeated labels implied relationships that were not meant to be shown.
+
+First recommendation:
+
+Use a schema-first flowchart with the table as the visual anchor, followed by
+its columns and a separate area for illustrative values.
+
+
+2. Correcting the meaning of the values
+---------------------------------------
+
+User feedback:
+
+"I don't think the illustrative values are helpful."
+
+The user clarified the intended relationships:
+
+- button_category maps to Authentication, Messaging, and Gameplay.
+- mapped_screen_name maps to screen_a, screen_b, and missing_source.
+- mapped_navigation_surface maps to sign_in, play, party, and related surfaces.
+- semantic_tags contains a Workstream tag represented by
+  workstream <acronym>.
+
+Design correction:
+
+The placeholder button identifiers were removed. Each column was connected
+directly to its governed values.
+
+Lesson:
+
+Example records and governed values are not the same thing. The diagram became
+clearer once it stopped pretending to show records and focused on the mapping
+taxonomy.
+
+
+3. Fixing the layout
+--------------------
+
+User feedback:
+
+"It currently all stems out of one area. Is there a better way we can go about
+this? For example, the examples are child nodes?"
+
+AI critique:
+
+- The flowchart created a congested central fan-out.
+- The values were technically child nodes, but the routed arrows did not make
+  the hierarchy easy to see.
+- The information was fundamentally hierarchical rather than procedural.
+
+Recommendation:
+
+Return to a mind map, but use a strict hierarchy:
+
+dim_button
+  -> column
+    -> governed value
+
+The problem with the original mind map was not the diagram type. The problem
+was that descriptions, identifiers, classifications, and values had been mixed
+at equivalent levels.
+
+
+4. Improving appearance without weakening clarity
+--------------------------------------------------
+
+User feedback:
+
+"The layout is perfect now. Can we prettify this via colour and shapes that are
+accessibility friendly and also readable on GitHub, for example no bright
+colours?"
+
+Design decisions:
+
+- Keep the successful hierarchy unchanged.
+- Use a muted navy, slate, and neutral-grey palette.
+- Set explicit foreground colours to preserve text contrast.
+- Use shape as well as colour so meaning does not depend on colour alone.
+- Avoid custom CSS and icons that may render inconsistently on GitHub.
+
+Visual roles:
+
+- Circle: the dim_button table
+- Square: mapped columns
+- Rounded rectangle: governed values
+- Hexagon: semantic-tag family
+
+This is redundant visual encoding: if a renderer changes or ignores some
+colours, the node shapes still communicate the hierarchy.
+
+
+5. Final Mermaid
+----------------
+
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#243447'
+    primaryTextColor: '#FFFFFF'
+    primaryBorderColor: '#182433'
+    secondaryColor: '#44566C'
+    secondaryTextColor: '#FFFFFF'
+    secondaryBorderColor: '#2F3D4D'
+    tertiaryColor: '#E7EAED'
+    tertiaryTextColor: '#1F2933'
+    tertiaryBorderColor: '#687580'
+    lineColor: '#687580'
+---
+mindmap
+  root((dim_button))
+    category[button_category]
+      authentication(Authentication)
+      messaging(Messaging)
+      gameplay(Gameplay)
+    screen[mapped_screen_name]
+      screen_a_value(screen_a)
+      screen_b_value(screen_b)
+      missing_source_value(missing_source)
+    surface[mapped_navigation_surface]
+      sign_in_value(sign_in)
+      play_value(play)
+      party_value(party)
+      profile_value(profile)
+      social_drawer_value(social_drawer)
+    tags[semantic_tags]
+      workstream{{Workstream}}
+        workstream_value(workstream &lt;acronym&gt;)
+
+
+6. Transferable lessons
+-----------------------
+
+1. Give the diagram one communication job.
+2. Clarify whether values are examples, records, categories, or governed
+   mappings.
+3. Choose the diagram type from the relationship being communicated.
+4. Fix hierarchy and information architecture before adding colour.
+5. Use colour and shape together rather than relying on colour alone.
+6. Remove details that require a paragraph to justify.
+7. Treat the first AI-generated visual as something to challenge, not as the
+   final answer.
+
+
+Outcome
+-------
+
+The final diagram was stronger because the iteration refined the meaning and
+hierarchy before improving its appearance. AI was useful as an editable visual
+design partner rather than as a one-prompt diagram generator.
