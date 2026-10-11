@@ -268,8 +268,7 @@ If you want to use this with copilot: clone/ fork the repo and use this prompt
 > 4. Explain each script and the resources or identities it can change.
 > 5. Propose a staged validation plan that starts without VMs or shared AI resources, then tests one representative learner journey before scaling.
 > 6. Include checks for least privilege, unrelated resource visibility, accessibility, generated credential handling, idempotent reruns, timeout report mode, and preview first cleanup.
-> 7. Stop before every command that could create, modify, or delete Azure or Entra resources. Wait for my explicit approval and show me how I can verify the result myself.
-> End with a go or no go checklist. Mark anything that cannot be verified from the repository as requiring human confirmation.
+> 7. Stop before every command that could create, modify, or delete Azure or Entra resources. Wait for my explicit approval and show me how I can verify the result myself. End with a go or no go checklist. Mark anything that cannot be verified from the repository as requiring human confirmation.
 
 ### 1. Environment boundary
 
