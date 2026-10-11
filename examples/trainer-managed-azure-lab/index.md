@@ -8,9 +8,7 @@ permalink: /examples/trainer-managed-azure-lab/
 
 These privacy safe examples show the automation pattern Victoria Eshelby used for an AI-901 community workshop. They are supporting assets for the Today AI Learned case study, not a turnkey Microsoft product.
 
-**Author:** Victoria Eshelby<br>
-**Development:** Designed, tested, and reviewed by Victoria Eshelby with AI assistance<br>
-**Source:** <https://github.com/VEshelbyMTT/today-ai-learned>
+**Author:** Victoria Eshelby<br> **Development:** Designed, tested, and reviewed by Victoria Eshelby with AI assistance<br> **Source:** <https://github.com/VEshelbyMTT/today-ai-learned>
 
 Please retain the author attribution when copying or adapting these scripts.
 
