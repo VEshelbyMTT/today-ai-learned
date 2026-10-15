@@ -6,11 +6,22 @@ permalink: /articles/using-ai-for-visuals-dashboards-and-complex-visualisations/
 
 <!-- Publishing: keep all telemetry, players, coordinates, and map areas fictional. -->
 
-# Today AI Learned: Using AI for visuals: dashboards and complex visualisations
+<header class="article-header">
+    <div class="article-header__inner">
+        <p class="article-kicker">Issue 04 · Interactive dashboards</p>
+        <h1>Using AI for visuals: dashboards and complex visualisations</h1>
+        <p class="article-deck">My first work baby, a fictional player-movement map, and a little help from AI to turn it into something you can play with.</p>
+        <p class="article-date">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v4M17 2v4M3.5 9.5h17M5.5 4h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
+          <span><span class="visually-hidden">Published </span>16 October 2026</span>
+        </p>
+    </div>
+</header>
 
-**Published:** 16 October 2026
-
-**TL;DR:** I used AI to help turn player movement data into interactive maps and dashboards. It was friggen cool. Here's a fictional version you can play with, how we got to this dashboard, and a few things I'd check before trusting all the pretty colours.
+<p class="article-summary">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v13H8l-4 4V4Z"/><path d="M8 8h8M8 12h6"/></svg>
+  <span><strong class="visually-hidden">In short: </strong>I used AI to help turn player movement data into interactive maps and dashboards. It was friggen cool. Here's a fictional version you can play with, how we got to this dashboard, and a few things I'd check before trusting all the pretty colours.</span>
+</p>
 
 ## From diagrams to interactive visuals
 

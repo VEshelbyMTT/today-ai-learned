@@ -1,6 +1,8 @@
 title: Today AI Learned
 description: Practical notes about AI assisted analytics engineering in VS Code.
-url: ""
+url: "https://veshelbymtt.github.io"
+author: Victoria Eshelby
+image: "/assets/today-ai-learned-subject-2026-10-16.png"
 baseurl: "/today-ai-learned"
 asset_version: "2026-09-27-3"
 markdown: kramdown
@@ -14,6 +16,22 @@ exclude:
   - README.md
 
 defaults:
+  - scope:
+      path: "articles/2026/09/designing-your-ide.md"
+    values:
+      image: "/assets/today-ai-learned-subject-2026-09-11.png"
+  - scope:
+      path: "articles/2026/09/making-ai-my-implementation-minion.md"
+    values:
+      image: "/assets/today-ai-learned-subject-2026-09-25.png"
+  - scope:
+      path: "articles/2026/10/using-ai-for-visuals-design-and-explanation.md"
+    values:
+      image: "/assets/today-ai-learned-subject-2026-10-09.png"
+  - scope:
+      path: "articles/2026/10/using-ai-for-visuals-dashboards-and-complex-visualisations.md"
+    values:
+      image: "/assets/today-ai-learned-subject-2026-10-16.png"
   - scope:
       path: ""
     values:
