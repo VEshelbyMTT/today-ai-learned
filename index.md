@@ -27,6 +27,7 @@ description: Practical notes about AI assisted analytics engineering in VS Code.
         <p>A fictional world, nine little players, and an interactive dashboard you can have a play with.</p>
         <span class="article-card__meta">16 October 2026 · Issue 04 · Read the article</span>
       </div>
+      <img src="{{ '/assets/today-ai-learned-subject-2026-10-16.svg' | relative_url }}" alt="Today AI Learned: Using AI for visuals: dashboards and complex visualisations">
     </a>
     <a class="article-card" href="{{ '/articles/using-ai-for-visuals-design-and-explanation/' | relative_url }}">
       <div>
@@ -34,6 +35,7 @@ description: Practical notes about AI assisted analytics engineering in VS Code.
         <p>How Mermaid gives AI an editable language for turning rough explanations into useful technical diagrams.</p>
         <span class="article-card__meta">9 October 2026 · Issue 03 · Read the article</span>
       </div>
+      <img src="{{ '/assets/today-ai-learned-subject-2026-10-09.svg' | relative_url }}" alt="Today AI Learned: Using AI for visuals: design and explanation">
     </a>
     <a class="article-card" href="{{ '/articles/making-ai-my-implementation-minion/' | relative_url }}">
       <div>
