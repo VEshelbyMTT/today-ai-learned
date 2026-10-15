@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Player Observatory · TAIL Labs</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <a class="brand" href="index.html" aria-label="Player Observatory home"><span class="brand-mark">T/</span> TAIL <span class="muted">/ LABS</span></a>
+      <span class="environment"><span></span> SYNTHETIC SANDBOX</span>
+      <a class="embed-link" href="../../../articles/using-ai-for-visuals-dashboards-and-complex-visualisations/">Read the article ↗</a>
+    </header>
+    <main>
+      <section class="intro">
+        <div><p class="eyebrow">FIELD NOTES / INTERACTIVE EXPERIMENT 004</p><h1>Player <span>Observatory.</span></h1><p class="lede">Every journey leaves a story. Find it in the movement.</p></div>
+        <div class="session-stamp"><span class="muted">FICTIONAL SESSION</span><strong>WORLD_01 / OVERWORLD</strong><span>09 players · 10 minutes · 5s samples</span></div>
+      </section>
+      <div class="notice" role="status" id="status">Loading fictional session…</div>
+      <section class="metrics" aria-label="Session statistics">
+        <div><span>SELECTED PLAYERS</span><strong id="metric-players">—</strong><small>In your current selection</small></div>
+        <div><span>AREAS EXPLORED</span><strong id="metric-areas">—</strong><small>Dwelling samples, excluding spawn</small></div>
+        <div><span>RECORDED DISTANCE</span><strong id="metric-distance">—</strong><small>Map units between recorded positions</small></div>
+        <div><span>BUSIEST AREA</span><strong id="metric-busiest">—</strong><small>Most non-spawn dwelling samples</small></div>
+      </section>
+      <div class="workspace">
+        <section class="map-panel panel" aria-label="Interactive world replay">
+          <div class="panel-heading"><div><span class="eyebrow">WORLD EXPLORER</span><h2 id="view-title">Movement replay</h2></div><div class="segmented" role="group" aria-label="Map view"><button id="movement" aria-pressed="true">Movement</button><button id="density" aria-pressed="false">Density</button></div></div>
+          <div class="map-wrap">
+            <div class="map-hud"><span id="map-mode">RECORDED PATHS / 60s TRAILS</span><span id="clock">00:00</span></div>
+            <svg id="world" viewBox="-3 -4 106 69" role="group" aria-label="Fictional world map. Select an area to inspect it."></svg>
+            <div class="map-footer"><span id="map-caption">Markers interpolate between 5-second samples.</span><span>X / Y · MAP UNITS</span></div>
+          </div>
+          <div class="transport">
+            <button class="play" id="play" disabled aria-label="Play replay">▶ <span>Play</span></button>
+            <button id="reset" disabled aria-label="Reset replay">↺</button>
+            <label class="timeline"><span class="sr-only">Elapsed seconds</span><input id="time" type="range" min="0" max="600" step="1" value="0" disabled><span><span>00:00</span><span>05:00</span><span>10:00</span></span></label>
+            <label class="speed"><span class="sr-only">Playback speed</span><select id="speed"><option value="1">1×</option><option value="5" selected>5×</option><option value="10">10×</option></select></label>
+          </div>
+          <p class="map-note" id="explanation">Replay shows the latest positions. Statistics accumulate from the start through the replay cursor.</p>
+        </section>
+        <aside class="sidebar">
+          <section class="panel roster"><div class="panel-heading"><div><span class="eyebrow">PARTY ROSTER</span><h2>Follow a journey</h2></div><button class="text-button" id="select-all">Clear all</button></div><p class="hint">Toggle players to filter every view.</p><div id="players"></div></section>
+          <section class="panel inspector"><span class="eyebrow">AREA INTELLIGENCE</span><h2 id="area-title">Spawn</h2><p id="area-description">Select an area on the map to inspect recorded presence.</p><dl><div><dt>Visitors</dt><dd id="area-visitors">—</dd></div><div><dt>Dwelling samples</dt><dd id="area-samples">—</dd></div></dl><p class="hint">Counts use recorded dwelling positions through the replay cursor. Travelling samples are not area visits.</p></section>
+        </aside>
+      </div>
+      <section class="panel evidence"><details><summary>Behind the visual <span>Dataset, definitions &amp; download</span></summary><div class="evidence-body"><p>This is a fictional graph-based movement simulation, not a real game map or production telemetry. Density counts sampled positions in 4 × 4 map-unit cells, including travel; it does not measure unique players, deaths, difficulty, or time spent. Recorded distance sums straight-line steps, not inferred gameplay routes.</p><p id="sample-count"></p><button id="download" disabled>Download selection CSV ↓</button></div></details></section>
+      <footer><span>TAIL / TODAY AI LEARNED</span><span>Fictional world. Real curiosity.</span></footer>
+    </main>
+  </div>
+</body>
+</html>

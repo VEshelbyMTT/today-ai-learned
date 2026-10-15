@@ -21,6 +21,13 @@ description: Practical notes about AI assisted analytics engineering in VS Code.
   <p class="section-label">Latest issues</p>
   <h2 class="section-heading">Dream first. Let AI handle the implementation.</h2>
   <div class="article-list">
+    <a class="article-card" href="{{ '/articles/using-ai-for-visuals-dashboards-and-complex-visualisations/' | relative_url }}">
+      <div>
+        <h3>Using AI for visuals: dashboards and complex visualisations</h3>
+        <p>A fictional world, nine little players, and an interactive dashboard you can have a play with.</p>
+        <span class="article-card__meta">16 October 2026 · Issue 04 · Read the article</span>
+      </div>
+    </a>
     <a class="article-card" href="{{ '/articles/using-ai-for-visuals-design-and-explanation/' | relative_url }}">
       <div>
         <h3>Using AI for visuals: design and explanation</h3>
@@ -51,6 +58,10 @@ description: Practical notes about AI assisted analytics engineering in VS Code.
   <p class="section-label">Copy and adapt</p>
   <h2 class="section-heading">Examples built for use, not display.</h2>
   <div class="example-grid">
+    <a class="example-card" href="{{ '/examples/player-observatory/observatory/' | relative_url }}">
+      <h3>Player Observatory</h3>
+      <p>Replay fictional player journeys, inspect areas, and explore the movement behind a density map.</p>
+    </a>
     <a class="example-card" href="{{ '/examples/trainer-managed-azure-lab/' | relative_url }}">
       <h3>Trainer managed Azure lab</h3>
       <p>Credited PowerShell examples, prompts, prerequisites, staged validation, and preview first cleanup.</p>

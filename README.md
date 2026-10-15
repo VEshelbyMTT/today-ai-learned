@@ -8,18 +8,20 @@ Each article starts with a real task, records the approach, and separates what t
 
 ## Articles
 
-1. [Using AI for visuals: design and explanation](articles/2026/10/using-ai-for-visuals-design-and-explanation.md)
-2. [Making AI my implementation minion](articles/2026/09/making-ai-my-implementation-minion.md)
-3. [Designing an AI friendly IDE workspace](articles/2026/09/designing-your-ide.md)
+1. [Using AI for visuals: dashboards and complex visualisations](articles/2026/10/using-ai-for-visuals-dashboards-and-complex-visualisations.md)
+2. [Using AI for visuals: design and explanation](articles/2026/10/using-ai-for-visuals-design-and-explanation.md)
+3. [Making AI my implementation minion](articles/2026/09/making-ai-my-implementation-minion.md)
+4. [Designing an AI friendly IDE workspace](articles/2026/09/designing-your-ide.md)
 
 ## Copyable examples
 
-1. [Repository role instructions](examples/repository-roles/copilot-instructions.md)
-2. [Workspace layout](examples/repository-roles/workspace-layout.md)
-3. [Engineering feedback loop](examples/feedback-loop/checklist.md)
-4. [Weekly visual template](examples/visual-template/today-ai-learned-weekly-template.svg)
-5. [Agent guidance template starter](examples/agent-guidance-template/index.md)
-6. [AI-assisted Mermaid visual-design iteration](examples/ai-visuals-design-explanation/dim-button-ai-visual-iteration-example.txt)
+1. [Player Observatory: interactive replay and Python example](examples/player-observatory/index.md)
+2. [Repository role instructions](examples/repository-roles/copilot-instructions.md)
+3. [Workspace layout](examples/repository-roles/workspace-layout.md)
+4. [Engineering feedback loop](examples/feedback-loop/checklist.md)
+5. [Weekly visual template](examples/visual-template/today-ai-learned-weekly-template.svg)
+6. [Agent guidance template starter](examples/agent-guidance-template/index.md)
+7. [AI-assisted Mermaid visual-design iteration](examples/ai-visuals-design-explanation/dim-button-ai-visual-iteration-example.txt)
 
 The examples use generic names and contain no company code, private paths, infrastructure details, or unpublished implementation decisions. Review and adapt them before using them in another repository.
 
