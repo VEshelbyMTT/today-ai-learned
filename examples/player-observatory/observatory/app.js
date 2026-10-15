@@ -153,6 +153,36 @@ $("download").addEventListener("click",() => {
   const anchor = document.createElement("a"); anchor.href = url; anchor.download = "fictional-player-selection.csv";
   anchor.click(); setTimeout(() => URL.revokeObjectURL(url),1000);
 });
+$("download-map").addEventListener("click",() => {
+  setPlaying(false);
+  render(true);
+  const source = $("world"), image = source.cloneNode(true);
+  const originals = [source,...source.querySelectorAll("*")];
+  const copies = [image,...image.querySelectorAll("*")];
+  const properties = ["fill","fill-opacity","stroke","stroke-width","stroke-opacity","stroke-linecap","stroke-linejoin","opacity","font-family","font-size","font-weight","text-anchor"];
+  originals.forEach((node,index) => {
+    const style = getComputedStyle(node);
+    for(const property of properties) copies[index].style.setProperty(property,style.getPropertyValue(property));
+    for(const attribute of ["tabindex","role","aria-pressed"]) copies[index].removeAttribute(attribute);
+  });
+  image.setAttribute("xmlns",svgNS);
+  image.setAttribute("viewBox","-3 -9 106 81");
+  image.setAttribute("width","1272");
+  image.setAttribute("height","972");
+  image.removeAttribute("style");
+  const background = svg("rect",{x:-3,y:-9,width:106,height:81,fill:"#0b151b"});
+  image.prepend(background);
+  const title = `Player Observatory · ${$("view-title").textContent} · ${timestamp(seconds)}`;
+  svg("title",{},image).textContent = title;
+  svg("desc",{},image).textContent = `Selected player IDs: ${[...selected].sort((a,b) => a-b).join(", ") || "none"}. Statistics and density accumulate through ${timestamp(seconds)}.`;
+  svg("text",{x:50,y:-5,"text-anchor":"middle",fill:"#e7efee","font-family":"Segoe UI, Arial, sans-serif","font-size":2.2},image).textContent = `${title} · Players selected: ${selected.size}`;
+  svg("text",{x:50,y:68,"text-anchor":"middle",fill:"#91a8ad","font-family":"Segoe UI, Arial, sans-serif","font-size":1.3},image).textContent = document.querySelector('link[rel="canonical"]').href;
+  svg("text",{x:50,y:71,"text-anchor":"middle",fill:"#91a8ad","font-family":"Segoe UI, Arial, sans-serif","font-size":1.5},image).textContent = mode === "density" ? $("map-caption").textContent : "Fictional data · Interpolated positions · Recent 60s trails";
+  const url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(image)],{type:"image/svg+xml;charset=utf-8"}));
+  const anchor = document.createElement("a");
+  anchor.href = url; anchor.download = `player-observatory-${mode}-${Math.floor(seconds)}s.svg`;
+  anchor.click(); setTimeout(() => URL.revokeObjectURL(url),1000);
+});
 document.addEventListener("visibilitychange",() => {if(document.hidden) setPlaying(false);});
 reducedMotion.addEventListener("change",() => {if(reducedMotion.matches) setPlaying(false);});
 if(embedded) {
@@ -170,7 +200,7 @@ try {
   selected = new Set(ids);
   paths = new Map(ids.map(id => [id,rows.filter(row => row.player_id === id)]));
   makeMap(); makeRoster(); render(true);
-  for(const id of ["play","reset","time","movement","density","select-all","speed"]) $(id).disabled = false;
+  for(const id of ["play","reset","time","movement","density","select-all","speed","download-map"]) $(id).disabled = false;
 } catch(error) {
   console.error("Player Observatory could not load:",error);
   $("status").classList.add("error");

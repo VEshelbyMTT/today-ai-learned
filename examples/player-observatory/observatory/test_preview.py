@@ -1,9 +1,11 @@
 """Run with Python and Playwright installed: python -m unittest discover -s <observatory>."""
 
 import csv
+import base64
 import math
 import threading
 import unittest
+import xml.etree.ElementTree as ET
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -182,6 +184,105 @@ class PreviewTests(unittest.TestCase):
             self.assertEqual(frame.locator("#clock").inner_text(), "05:00")
             self.page.goto(self.url + "index.html")
             self.page.locator("#play:not(:disabled)").wait_for()
+
+    def test_author_credit_survives_layout_and_view_changes(self):
+        original = "https://veshelbymtt.github.io/today-ai-learned/"
+        for width in [375, 1440]:
+            self.page.set_viewport_size({"width": width, "height": 900})
+            for suffix in ["index.html", "index.html?embedded"]:
+                self.page.goto(self.url + suffix)
+                self.page.locator("#play:not(:disabled)").wait_for()
+                self.assertEqual(
+                    self.page.locator('meta[name="author"]').get_attribute("content"),
+                    "Victoria Eshelby",
+                )
+                self.assertTrue(
+                    self.page.locator('link[rel="canonical"]').get_attribute("href").startswith(original)
+                )
+                byline = self.page.get_by_role("link", name="Created by Victoria Eshelby")
+                self.assertTrue(byline.is_visible())
+                self.assertTrue(byline.get_attribute("href").startswith(original))
+                self.assertIn("Victoria Eshelby", self.page.locator("#world-description").text_content())
+                for mode in ["density", "movement"]:
+                    self.page.locator(f"#{mode}").click()
+                    self.scrub(300)
+                    credit = self.page.locator("#world .map-attribution")
+                    self.assertTrue(credit.is_visible())
+                    self.assertIn("Created by Victoria Eshelby", credit.text_content())
+                    self.assertTrue(credit.evaluate(
+                        """node => {
+                            const box = node.getBBox();
+                            const bounds = node.ownerSVGElement.viewBox.baseVal;
+                            return box.x >= bounds.x && box.y >= bounds.y &&
+                                box.x + box.width <= bounds.x + bounds.width &&
+                                box.y + box.height <= bounds.y + bounds.height;
+                        }"""
+                    ))
+
+    def test_sharing_metadata_and_about_links(self):
+        expected = "https://veshelbymtt.github.io/today-ai-learned/"
+        for selector in ['meta[property="og:image"]', 'meta[name="twitter:image"]']:
+            self.assertEqual(
+                self.page.locator(selector).get_attribute("content"),
+                expected + "assets/today-ai-learned-subject-2026-10-16.png",
+            )
+        self.assertIn("Victoria Eshelby", self.page.locator(
+            'meta[property="og:title"]'
+        ).get_attribute("content"))
+        self.assertEqual(
+            self.page.locator('meta[property="og:url"]').get_attribute("content"),
+            self.page.locator('link[rel="canonical"]').get_attribute("href"),
+        )
+        self.page.locator("summary").click()
+        self.assertTrue(self.page.get_by_role("heading", name="About this experiment").is_visible())
+        self.assertTrue(self.page.get_by_role("link", name="Read the story").get_attribute("href").startswith(expected))
+        self.assertEqual(
+            self.page.get_by_role("link", name="explore the source").get_attribute("href"),
+            "https://github.com/VEshelbyMTT/today-ai-learned/tree/main/examples/player-observatory",
+        )
+
+    def test_map_svg_export_is_self_contained_and_attributed(self):
+        self.page.locator("#select-all").click()
+        self.page.get_by_role("checkbox", name="Player 01", exact=True).check()
+        self.scrub(300)
+        self.page.locator("summary").click()
+        for mode in ["movement", "density"]:
+            self.page.locator(f"#{mode}").click()
+            with self.page.expect_download() as download_info:
+                self.page.locator("#download-map").click()
+            download = download_info.value
+            self.assertEqual(download.suggested_filename, f"player-observatory-{mode}-300s.svg")
+            content = Path(download.path()).read_text(encoding="utf-8")
+            root = ET.fromstring(content)
+            ns = {"s": "http://www.w3.org/2000/svg"}
+            self.assertEqual(root.tag, "{http://www.w3.org/2000/svg}svg")
+            self.assertIn("Created by Victoria Eshelby", content)
+            self.assertIn("https://veshelbymtt.github.io/today-ai-learned/examples/player-observatory/observatory/", content)
+            self.assertIn("05:00", content)
+            self.assertIn("Players selected: 1", content)
+            self.assertIn("Selected player IDs: 1.", content)
+            self.assertEqual(root[0].get("fill"), "#0b151b")
+            markers = root.findall('.//s:circle[@class="marker"]', ns)
+            self.assertEqual(len(markers), 1 if mode == "movement" else 0)
+            self.assertEqual(root.findall(".//s:script", ns), [])
+            self.assertEqual(root.findall(".//s:image", ns), [])
+            tile = root.find('.//*[@class="tile"]')
+            self.assertIn("fill:", tile.get("style"))
+            encoded = base64.b64encode(content.encode()).decode()
+            exported = self.context.new_page()
+            exported.goto("data:image/svg+xml;base64," + encoded)
+            self.assertTrue(exported.evaluate(
+                """() => {
+                    const bounds = document.documentElement.viewBox.baseVal;
+                    return Array.from(document.querySelectorAll('text')).every(node => {
+                        const box = node.getBBox();
+                        return box.width > 0 && box.x >= bounds.x && box.y >= bounds.y &&
+                            box.x + box.width <= bounds.x + bounds.width &&
+                            box.y + box.height <= bounds.y + bounds.height;
+                    });
+                }"""
+            ))
+            exported.close()
 
     def test_reduced_motion_and_theme(self):
         self.page.emulate_media(reduced_motion="reduce")

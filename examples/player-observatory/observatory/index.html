@@ -4,6 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
+  <meta name="author" content="Victoria Eshelby">
+  <meta name="description" content="Created by Victoria Eshelby. Explore nine fictional players, replay their journeys, and investigate sampled movement in TAIL Labs.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Today AI Learned">
+  <meta property="og:title" content="Player Observatory · Created by Victoria Eshelby">
+  <meta property="og:description" content="Nine fictional players, ten minutes of wandering, and an interactive movement dashboard. Have a play.">
+  <meta property="og:url" content="https://veshelbymtt.github.io/today-ai-learned/examples/player-observatory/observatory/">
+  <meta property="og:image" content="https://veshelbymtt.github.io/today-ai-learned/assets/today-ai-learned-subject-2026-10-16.png">
+  <meta property="og:image:alt" content="Today AI Learned by Victoria Eshelby: AI visuals, dashboards and heatmaps">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Player Observatory · Created by Victoria Eshelby">
+  <meta name="twitter:description" content="Explore a fictional world and the player journeys behind the pretty colours.">
+  <meta name="twitter:image" content="https://veshelbymtt.github.io/today-ai-learned/assets/today-ai-learned-subject-2026-10-16.png">
+  <meta name="twitter:image:alt" content="Today AI Learned by Victoria Eshelby: AI visuals, dashboards and heatmaps">
+  <link rel="canonical" href="https://veshelbymtt.github.io/today-ai-learned/examples/player-observatory/observatory/">
   <title>Player Observatory · TAIL Labs</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="app.js"></script>
@@ -20,6 +35,7 @@
         <div><p class="eyebrow">FIELD NOTES / INTERACTIVE EXPERIMENT 004</p><h1>Player <span>Observatory.</span></h1><p class="lede">Every journey leaves a story. Find it in the movement.</p></div>
         <div class="session-stamp"><span class="muted">FICTIONAL SESSION</span><strong>WORLD_01 / OVERWORLD</strong><span>09 players · 10 minutes · 5s samples</span></div>
       </section>
+      <p class="attribution" style="margin: 0 0 20px; color: var(--muted); font-size: 12px;"><a href="https://veshelbymtt.github.io/today-ai-learned/articles/using-ai-for-visuals-dashboards-and-complex-visualisations/" target="_blank" rel="noopener">Created by Victoria Eshelby</a> · TAIL Labs</p>
       <div class="notice" role="status" id="status">Loading fictional session…</div>
       <section class="metrics" aria-label="Session statistics">
         <div><span>SELECTED PLAYERS</span><strong id="metric-players">—</strong><small>In your current selection</small></div>
@@ -32,7 +48,10 @@
           <div class="panel-heading"><div><span class="eyebrow">WORLD EXPLORER</span><h2 id="view-title">Movement replay</h2></div><div class="segmented" role="group" aria-label="Map view"><button id="movement" aria-pressed="true">Movement</button><button id="density" aria-pressed="false">Density</button></div></div>
           <div class="map-wrap">
             <div class="map-hud"><span id="map-mode">RECORDED PATHS / 60s TRAILS</span><span id="clock">00:00</span></div>
-            <svg id="world" viewBox="-3 -4 106 69" role="group" aria-label="Fictional world map. Select an area to inspect it."></svg>
+            <svg id="world" viewBox="-3 -4 106 69" role="group" aria-label="Fictional world map. Select an area to inspect it." aria-describedby="world-description">
+              <desc id="world-description">Player Observatory. Created by Victoria Eshelby. Original: https://veshelbymtt.github.io/today-ai-learned/examples/player-observatory/observatory/</desc>
+              <text class="map-attribution" x="50" y="64" text-anchor="middle" fill="#91a8ad" font-family="Segoe UI, Arial, sans-serif" font-size="2.2" pointer-events="none">Created by Victoria Eshelby · TAIL Labs</text>
+            </svg>
             <div class="map-footer"><span id="map-caption">Markers interpolate between 5-second samples.</span><span>X / Y · MAP UNITS</span></div>
           </div>
           <div class="transport">
@@ -48,7 +67,7 @@
           <section class="panel inspector"><span class="eyebrow">AREA INTELLIGENCE</span><h2 id="area-title">Spawn</h2><p id="area-description">Select an area on the map to inspect recorded presence.</p><dl><div><dt>Visitors</dt><dd id="area-visitors">—</dd></div><div><dt>Dwelling samples</dt><dd id="area-samples">—</dd></div></dl><p class="hint">Counts use recorded dwelling positions through the replay cursor. Travelling samples are not area visits.</p></section>
         </aside>
       </div>
-      <section class="panel evidence"><details><summary>Behind the visual <span>Dataset, definitions &amp; download</span></summary><div class="evidence-body"><p>This is a fictional graph-based movement simulation, not a real game map or production telemetry. Density counts sampled positions in 4 × 4 map-unit cells, including travel; it does not measure unique players, deaths, difficulty, or time spent. Recorded distance sums straight-line steps, not inferred gameplay routes.</p><p id="sample-count"></p><button id="download" disabled>Download selection CSV ↓</button></div></details></section>
+      <section class="panel evidence"><details><summary>Behind the visual <span>Dataset, definitions &amp; download</span></summary><div class="evidence-body"><h2>About this experiment</h2><p>Created by Victoria Eshelby for Today AI Learned, with AI helping on implementation. <a href="https://veshelbymtt.github.io/today-ai-learned/articles/using-ai-for-visuals-dashboards-and-complex-visualisations/" target="_blank" rel="noopener">Read the story</a> or <a href="https://github.com/VEshelbyMTT/today-ai-learned/tree/main/examples/player-observatory" target="_blank" rel="noopener">explore the source</a>.</p><p>This is a fictional graph-based movement simulation, not a real game map or production telemetry. Density counts sampled positions in 4 × 4 map-unit cells, including travel; it does not measure unique players, deaths, difficulty, or time spent. Recorded distance sums straight-line steps, not inferred gameplay routes.</p><p id="sample-count"></p><button id="download" disabled>Download selection CSV ↓</button> <button id="download-map" disabled>Download map SVG ↓</button><p>The map image includes your current view, replay time, player selection, creator credit, and original URL. SVG is a vector image you can open in a browser.</p></div></details></section>
       <footer><span>TAIL / TODAY AI LEARNED</span><span>Fictional world. Real curiosity.</span></footer>
     </main>
   </div>

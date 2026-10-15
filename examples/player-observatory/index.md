@@ -16,6 +16,8 @@ All players, coordinates, timestamps, areas, and routes are fictional. The examp
 
 Press Play or scrub the timeline, filter players, select an area, and switch between movement and density. Statistics accumulate from the start through the replay cursor. Density counts recorded positions; area visitors use dwelling samples. The definitions and CSV download are under **Behind the visual**.
 
+The same panel includes **About this experiment** and **Download map SVG**. Export pauses playback and saves the current map as a self-contained vector image with the view, replay time, selected-player count, Victoria Eshelby's creator credit, and original dashboard URL. The SVG description records the selected player IDs. Open the downloaded image in a browser; it needs no dashboard stylesheet or data connection.
+
 The browser experience uses HTML, CSS, JavaScript, and a static CSV. It needs no Python service, credentials, or Databricks connection.
 
 ## Adapt the Python example
