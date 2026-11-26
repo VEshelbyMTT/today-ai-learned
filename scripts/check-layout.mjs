@@ -4,6 +4,7 @@ import { chromium } from "playwright";
 
 const baseUrl = (process.env.SITE_PREVIEW_URL ?? "http://127.0.0.1:4000").replace(/\/$/, "");
 const articles = [
+  { slug: "becoming-the-webshop-front-end-developer", imagePath: "/assets/shopify-handover/shop-desktop-2026-11-07.png" },
   { slug: "designing-an-ai-friendly-ide-workspace", image: "2026-09-11" },
   { slug: "making-ai-my-implementation-minion", image: "2026-09-25" },
   { slug: "using-ai-for-visuals-design-and-explanation", image: "2026-10-09" },
@@ -87,7 +88,7 @@ try {
     assert.equal(metadata.canonical, publishedUrl);
     assert.equal(metadata.url, publishedUrl);
     assert(metadata.title?.length > 0, "Sharing title is missing");
-    const imagePath = `/assets/today-ai-learned-subject-${article.image}.png`;
+    const imagePath = article.imagePath ?? `/assets/today-ai-learned-subject-${article.image}.png`;
     assert.equal(metadata.image, `https://veshelbymtt.github.io/today-ai-learned${imagePath}`);
     assert.equal(metadata.twitterImage, metadata.image);
     const imageResponse = await page.request.get(`${baseUrl}${imagePath}`);

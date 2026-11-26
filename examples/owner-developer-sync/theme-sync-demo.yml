@@ -1,0 +1,45 @@
+name: Owner and developer theme sync - read-only demo
+
+on:
+  push:
+    branches: [main, theme-editor]
+  workflow_dispatch:
+    inputs:
+      direction:
+        description: Which ownership channel to demonstrate
+        type: choice
+        options: [forward, reverse]
+        default: forward
+
+permissions:
+  contents: read
+
+concurrency:
+  group: owner-developer-theme-sync
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    if: >-
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/theme-editor') &&
+      !(github.event_name == 'push' &&
+        github.actor == 'github-actions[bot]' &&
+        startsWith(github.event.head_commit.message, '[theme-sync:'))
+    runs-on: windows-latest
+    timeout-minutes: 5
+    env:
+      SYNC_DIRECTION: ${{ github.event_name == 'workflow_dispatch' && inputs.direction || (github.ref == 'refs/heads/main' && 'forward' || 'reverse') }}
+    steps:
+      - name: Use source tooling, not tooling from the editor branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check both ownership channels
+        run: node --test sync-demo.test.cjs
+      - name: Print the synthetic plan - no store or Git writes
+        run: node sync-demo.cjs $env:SYNC_DIRECTION
+        shell: pwsh

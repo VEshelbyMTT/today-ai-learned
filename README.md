@@ -8,12 +8,15 @@ Each article starts with a real task, records the approach, and separates what t
 
 ## Articles
 
-1. [Using AI for visuals: dashboards and complex visualisations](articles/2026/10/using-ai-for-visuals-dashboards-and-complex-visualisations.md)
-2. [Using AI for visuals: design and explanation](articles/2026/10/using-ai-for-visuals-design-and-explanation.md)
-3. [Making AI my implementation minion](articles/2026/09/making-ai-my-implementation-minion.md)
-4. [Designing an AI friendly IDE workspace](articles/2026/09/designing-your-ide.md)
+1. [Becoming the webshop front-end developer, with a lot of AI help](articles/2026/11/becoming-the-webshop-front-end-developer.md)
+2. [Using AI for visuals: dashboards and complex visualisations](articles/2026/10/using-ai-for-visuals-dashboards-and-complex-visualisations.md)
+3. [Using AI for visuals: design and explanation](articles/2026/10/using-ai-for-visuals-design-and-explanation.md)
+4. [Making AI my implementation minion](articles/2026/09/making-ai-my-implementation-minion.md)
+5. [Designing an AI friendly IDE workspace](articles/2026/09/designing-your-ide.md)
 
 ## Copyable examples
+
+The [owner/developer theme sync demo](examples/owner-developer-sync/index.md) accompanies the Shopify article. Its invented revision data and read-only planner require no store connection.
 
 1. [Player Observatory: interactive replay and Python example](examples/player-observatory/index.md)
 2. [Repository role instructions](examples/repository-roles/copilot-instructions.md)
